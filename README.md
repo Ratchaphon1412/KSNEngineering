@@ -7,6 +7,66 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+---
+## วิธีการติดตั้ง project สำหรับคนลงใหม่
+
+## window
+> ### *! เครื่องควรจะมีการติดตั้ง docker และ wsl 22.0.4 version 2 ก่อนเพื่อใช้นการ run project ขึ้นมา !*
+
+## mac
+> ### *! เครื่องควรจะมีการติดตั้ง docker ก่อนเพื่อใช้นการ run project ขึ้นมา !*
+
+<br>
+
+1. เอาโปรเจคเข้าเครื่อง
+```
+git clone https://github.com/Ratchaphon1412/KSNEngineering.git 
+```
+2. cd KSNEngineering/
+3. 
+```
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+```
+4. 
+```
+cp .env.example .env
+```
+5. เข้าไปแก้ไขไฟล์ .env
+
+```
+APP_NAME="Laravel Layout" (บรรทัด 1)
+```
+```
+DB_HOST=mysql (บรรทัด 12)
+```
+```
+DB_USERNAME=sail (บรรทัด 15)
+```  
+```
+DB_PASSWORD=password (บรรทัด 16) 
+```
+```
+REDIS_HOST=redis (บรรทัด 27)
+```
+6. เพิ่มในไฟล์ vite.config.js
+```
+server: {
+    hmr: {
+        host: 'localhost',
+    },
+}
+```
+7. sail up -d
+8. sail artisan key:generate
+9. sail artisan migrate
+9. sail yarn install
+10. sail yarn dev
+---
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
