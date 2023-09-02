@@ -10,8 +10,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function images():HasMany {
-        return $this->hasMany(Image::class);
+    public function product_images():HasMany {
+        return $this->hasMany(Product_image::class);
     }
 
     public function orders():HasMany {

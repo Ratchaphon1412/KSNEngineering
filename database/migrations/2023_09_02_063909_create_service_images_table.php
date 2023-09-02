@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Product;
-use App\Models\Quotation;
 use App\Models\Service;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,14 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('service_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Quotation::class);
             $table->foreignIdFor(Service::class);
-            $table->foreignIdFor(Product::class);
-            $table->integer('quantity');
-            $table->integer('total_price');
-            $table->string('status');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -31,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('service_images');
     }
 };

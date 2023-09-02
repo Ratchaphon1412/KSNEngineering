@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('education');
             $table->string('role')->default('enginear');
             $table->string('address')->nullable();
-            $table->int('salary');
+            $table->integer('salary');
             $table->string('image')->nullable();
             $table->string('sso')->nullable();
             $table->string('pvd')->nullable();

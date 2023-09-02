@@ -10,8 +10,8 @@ class Troubleshooting extends Model
 {
     use HasFactory;
 
-    public function images():HasMany {
-        return $this->hasMany(Image::class);
+    public function troubleshooting_images():HasMany {
+        return $this->hasMany(Troubleshooting_image::class);
     }
 
     public function company() {

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignIdFor(Company::class);
             $table->foreignIdFor(User::class);
             $table->double('total_price');
-            $table->int('disc');
+            $table->integer('disc');
             $table->double('net_price');
-            $table->int('vat');
+            $table->integer('vat');
             $table->double('grand_total');
             $table->timestamps();
         });

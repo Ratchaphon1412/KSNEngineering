@@ -10,13 +10,13 @@ class Service extends Model
 {
     use HasFactory;
 
-    public function images():HasMany {
-        return $this->hasMany(Image::class);
+    public function service_images():HasMany {
+        return $this->hasMany(Service_image::class);
     }
 
 
     public function orders():HasMany {
         return $this->hasMany(Order::class);
     }
-    
+
 }
