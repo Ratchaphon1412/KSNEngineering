@@ -24,6 +24,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/product', function () {
+    return Inertia::render('ProductPage');
+})->name("product");
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
