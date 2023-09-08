@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import Layout from '@/Layouts/Layout.vue';
 
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
@@ -11,68 +12,13 @@ onMounted(() => {
 defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
 });
+
 </script>
 
 <template>
     <Head title="Welcome" />
-    <!-- navbar -->
-    <div class="bg-gray-100">
-        <div class="container mx-auto sm:flex sm:flex-row sm:justify-center sm:items-center bg-dots-darker bg-center selection:bg-red-500 selection:text-white">
-            <!-- logo image -->
-            <div class="mr-[4%]">
-                <img :src="'../storage/image/logo.png'" 
-                    alt="KSNlogo" class="w-[60px]">
-            </div>
-    
-            <!-- search -->
-            <div class="mr-[4%]">
-
-                <div class="text-sm font-medium text-center text-gray-500 border-gray-200">
-                    <ul class="flex -mb-px">
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">หน้าหลัก</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">เกี่ยวกับเรา</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">บริการ</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">สินค้า</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">เครนโรงงาน</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">ผลงานของเรา</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">ติดต่อเรา</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            
-            <!-- login and register -->
-            <div v-if="canLogin" class="p-6 text-center z-10">
-                <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
-    
-                <template v-else>
-                    <Link :href="route('login')" class="font-semibold p-5 rounded-full bg-[#03045E] text-white hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">เข้าสู่ระบบ</Link>
-    
-                    <!-- <Link v-if="canRegister" :href="route('register')" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</Link> -->
-                </template>
-            </div>
-            
-
-        </div>
-    </div>
-
+    <Layout :can-login="canLogin" :can-register="canRegister">
         <!-- <div id="default-carousel" class="relative w-full" data-carousel="slide">
             
             <div class="relative min-h-screen overflow-hidden rounded-lg">
@@ -201,10 +147,17 @@ defineProps({
         </div> -->
 
         <div class="container mx-auto">
-
             <p class="text-center font-semibold text-3xl my-10">เกี่ยวกับเรา</p>
-            <p class="text-center px-[10%] font-normal leading-loose">บริษัท เค เอส เอ็น เอ็นจิเนียริ่ง จำกัด ได้ก่อตั้งขึ้นในปี พ.ศ. 2537 เพื่อดำเนินธุรกิจ ทางด้านการส่งเสริมอุตสาหกรรมของประเทศไทย เป็นตัวแทนจำหน่ายรอกเครน, ลิฟต์ ขนส่งสินค้าเพื่อตอบสนองความต้องการในโรงงานอุตสาหกรรม ตลอดจนผู้ใช้งานทั่วไป บริษัทมุ่งเน้นถึงคุณภาพของการผลิตทุกขั้นตอน คำนึงถึงความปลอดภัยของผู้ใช้ งานล้วนเลือกคัดสรรแต่สินค้าที่มีคุณภาพเท่านั้นไว้ให้บริการ ด้วยความมุ่งมั่นและพัฒนา อย่างต่อเนื่อง จึงทำให้ผลงานเป็นที่ประจักษ์ต่อลูกค้าที่ได้ใช้บริการ ด้วยระยะเวลา รวมถึงประสบการณ์ที่ยาวนาน และตั้งอยู่บนฐานของความซื่อสัตย์ พร้อมมิตรไมตรีทางธุรกิจจึงทำให้เราได้รับความไว้วางใจจากลูกค้าเป็นจำนวนมาก</p>
-            <hr class="my-10 w-[432px] mx-auto border-black">
+            <p class="text-center px-[10%] font-normal leading-loose">
+                บริษัท เค เอส เอ็น เอ็นจิเนียริ่ง จำกัด ได้ก่อตั้งขึ้นในปี พ.ศ. 2537 เพื่อดำเนินธุรกิจ<br>
+                ทางด้านการส่งเสริมอุตสาหกรรมของประเทศไทย เป็นตัวแทนจำหน่ายรอกเครน, ลิฟต์<br>
+                ขนส่งสินค้าเพื่อตอบสนองความต้องการในโรงงานอุตสาหกรรม ตลอดจนผู้ใช้งานทั่วไป<br>
+                บริษัทมุ่งเน้นถึงคุณภาพของการผลิตทุกขั้นตอน คำนึงถึงความปลอดภัยของผู้ใช้<br>
+                งานล้วนเลือกคัดสรรแต่สินค้าที่มีคุณภาพเท่านั้นไว้ให้บริการ ด้วยความมุ่งมั่นและพัฒนา อย่างต่อเนื่อง<br>
+                จึงทำให้ผลงานเป็นที่ประจักษ์ต่อลูกค้าที่ได้ใช้บริการ ด้วยระยะเวลา รวมถึงประสบการณ์ที่ยาวนาน<br>
+                และตั้งอยู่บนฐานของความซื่อสัตย์ พร้อมมิตรไมตรีทางธุรกิจจึงทำให้เราได้รับความไว้วางใจจากลูกค้าเป็นจำนวนมาก
+            </p>
+            <hr class="my-14 w-[432px] mx-auto border-black border-2 rounded-full">
         </div>
 
         <p class="ml-[5%] text-4xl font-semibold mb-5">รายการสินค้า</p>
@@ -285,17 +238,11 @@ defineProps({
             <button class="text-black font-semibold rounded-lg border-4 border-black p-5 mr-5">ผลงานเพิ่มเติม</button>
             <button class="text-white font-semibold rounded-lg bg-[#03045E] p-6">ข้อมูลเพิ่มเติม</button>
         </div>
-
+    </Layout>
+        
 
 </template>
 
 <style>
-.bg-dots-darker {
-    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
-}
-@media (prefers-color-scheme: dark) {
-    .dark\:bg-dots-lighter {
-        background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
-    }
-}
+
 </style>
