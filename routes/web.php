@@ -23,11 +23,17 @@ Route::get('/', function () {
 });
 
 Route::get('/product', function () {
-    return Inertia::render('ProductPage');
+    return Inertia::render('ProductPage', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
 })->name("product");
 
 Route::get('/service-page', function () {
-    return Inertia::render('ServicePage');
+    return Inertia::render('ServicePage', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
 })->name("service-page");
 
 Route::middleware([
