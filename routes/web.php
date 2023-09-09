@@ -28,6 +28,10 @@ Route::get('/product', function () {
     return Inertia::render('ProductPage');
 })->name("product");
 
+Route::get('/service-page', function () {
+    return Inertia::render('ServicePage');
+})->name("service-page");
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
