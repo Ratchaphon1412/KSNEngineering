@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('education');
-            $table->string('role')->default('enginear');
+            $table->string('role')->default('Enginear');
             $table->string('address')->nullable();
             $table->integer('salary');
             $table->string('image')->nullable();
