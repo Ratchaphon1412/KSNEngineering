@@ -18,6 +18,6 @@ class multirole
         if( auth()->user()->role === $role) {
             return $next($request);
         }
-        return $next($request);
+        return redirect('dashboard')->with('error', "You don't have admin access.");
     }
 }

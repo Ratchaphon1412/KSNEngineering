@@ -15,11 +15,11 @@ use Inertia\Inertia;
 |
 */
 
-// Route::middleware('multirole:Admin')->group( function () {
-//     Route::get('/admin', function () {
-//         return Inertia::render('adminPage')->name('admin');
-//     });
-// });
+Route::middleware('multirole:Admin')->group( function () {
+    Route::get('/admin', function () {
+        return Inertia::render('adminPage');
+    })->name('admin');
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
