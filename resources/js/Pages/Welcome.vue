@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 import Layout from '@/Layouts/Layout.vue';
 
 import { onMounted } from 'vue'
@@ -19,140 +19,30 @@ defineProps({
 <template>
     <Head title="Welcome" />
     <Layout :can-login="canLogin" :can-register="canRegister">
-        <!-- <div id="default-carousel" class="relative w-full" data-carousel="slide">
-            
-            <div class="relative min-h-screen overflow-hidden rounded-lg">
-                
-                <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img :src="'../storage/slide/keeping.jpg'" 
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                        <div class="mx-auto text-white">
-                            <p class="text-center font-extrabold text-5xl my-10">บริการออกแบบ ติตตั้ง </p>
-                            <p class="text-white text-center font-extrabold text-5xl my-10"> ซ่อมบำรุงรอกและเครน</p>
-                            <div class="flex justify-center">
-                                <button class="font-semibold px-6 py-4 bg-amber-600 rounded-lg mr-4">สินค้าทั้งหมด</button>
-                                <button class="font-semibold px-6 py-4 rounded-lg border-2 border-white">บริการของเรา</button>
-                            </div>
-
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Docum</h2>
-
-                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                            </p>
-                        </div>
-                    </div>
+        
+        <section class="w-screen ">
+            <div class="relative">
+                <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth rounded-lg " id="slider" style="-ms-overflow-style: none; scrollbar-width: none;">
+                    <img class="snap-start object-cover" :src="'../storage/slide/keeping.jpg'" style="flex: 1 0 100%;" id="slide1">
+                    <img class="snap-start object-cover" :src="'../storage/slide/prepare.jpg'" style="flex: 1 0 100%;" id="slide2">
+                    <img class="snap-start object-cover" :src="'../storage/slide/product.jpg'" style="flex: 1 0 100%;" id="slide3">
+                    <img class="snap-start object-cover" :src="'../storage/slide/crane.jpg'" style="flex: 1 0 100%;" id="slide4">
+                    <img class="snap-start object-cover" :src="'../storage/slide/sending_product.jpg'" style="flex: 1 0 100%;" id="slide5">
                 </div>
 
-                <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img :src="'../storage/slide/keeping.jpg'" 
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                        <div class="mx-auto text-white">
-                            <p class="text-center font-extrabold text-5xl my-10">บริการออกแบบ ติตตั้ง </p>
-                            <p class="text-white text-center font-extrabold text-5xl my-10"> ซ่อมบำรุงรอกและเครน</p>
-                            <div class="flex justify-center">
-                                <button class="font-semibold px-6 py-4 bg-amber-600 rounded-lg mr-4">สินค้าทั้งหมด</button>
-                                <button class="font-semibold px-6 py-4 rounded-lg border-2 border-white">บริการของเรา</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                
-                <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img :src="'../storage/slide/crane.jpg'"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    
-                        <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                        <div class="mx-auto text-white">
-                            <p class="text-center font-extrabold text-5xl my-10">บริการออกแบบ ติตตั้ง </p>
-                            <p class="text-white text-center font-extrabold text-5xl my-10"> ซ่อมบำรุงรอกและเครน</p>
-                            <div class="flex justify-center">
-                                <button class="font-semibold px-6 py-4 bg-amber-600 rounded-lg mr-4">สินค้าทั้งหมด</button>
-                                <button class="font-semibold px-6 py-4 rounded-lg border-2 border-white">บริการของเรา</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img :src="'../storage/slide/prepare.jpg'"  
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-
-                        <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                        <div class="mx-auto text-white">
-                            <p class="text-center font-extrabold text-5xl my-10">บริการออกแบบ ติตตั้ง </p>
-                            <p class="text-white text-center font-extrabold text-5xl my-10"> ซ่อมบำรุงรอกและเครน</p>
-                            <div class="flex justify-center">
-                                <button class="font-semibold px-6 py-4 bg-amber-600 rounded-lg mr-4">สินค้าทั้งหมด</button>
-                                <button class="font-semibold px-6 py-4 rounded-lg border-2 border-white">บริการของเรา</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img :src="'../storage/slide/product.jpg'"  
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-
-                        <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                        <div class="mx-auto text-white">
-                            <p class="text-center font-extrabold text-5xl my-10">บริการออกแบบ ติตตั้ง </p>
-                            <p class="text-white text-center font-extrabold text-5xl my-10"> ซ่อมบำรุงรอกและเครน</p>
-                            <div class="flex justify-center">
-                                <button class="font-semibold px-6 py-4 bg-amber-600 rounded-lg mr-4">สินค้าทั้งหมด</button>
-                                <button class="font-semibold px-6 py-4 rounded-lg border-2 border-white">บริการของเรา</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img :src="'../storage/slide/sending_product.jpg'"  
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                        <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                        <div class="mx-auto text-white">
-                            <p class="text-center font-extrabold text-5xl my-10">บริการออกแบบ ติตตั้ง </p>
-                            <p class="text-white text-center font-extrabold text-5xl my-10"> ซ่อมบำรุงรอกและเครน</p>
-                            <div class="flex justify-center">
-                                <button class="font-semibold px-6 py-4 bg-amber-600 rounded-lg mr-4">สินค้าทั้งหมด</button>
-                                <button class="font-semibold px-6 py-4 rounded-lg border-2 border-white">บริการของเรา</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex flex-col gap-1 absolute top-1/4 inset-y-0 right-0 mr-10 z-10 -translate-x-1/2">
+                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide1"></a>
+                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide2"></a>
+                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide3"></a>
+                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide4"></a>
+                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide5"></a>
                 </div>
             </div>
-            
-            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-            </div>
-            
-            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
-        </div> -->
 
-        <div class="container mx-auto">
+        </section>
+       
+
+        <section class="container mx-auto">
             <p class="text-center font-semibold text-3xl my-10">เกี่ยวกับเรา</p>
             <p class="text-center px-[10%] font-normal leading-loose">
                 บริษัท เค เอส เอ็น เอ็นจิเนียริ่ง จำกัด ได้ก่อตั้งขึ้นในปี พ.ศ. 2537 เพื่อดำเนินธุรกิจ<br>
@@ -164,11 +54,11 @@ defineProps({
                 และตั้งอยู่บนฐานของความซื่อสัตย์ พร้อมมิตรไมตรีทางธุรกิจจึงทำให้เราได้รับความไว้วางใจจากลูกค้าเป็นจำนวนมาก
             </p>
             <hr class="my-14 w-[432px] mx-auto border-black border-2 rounded-full">
-        </div>
+        </section>
 
         <p class="ml-[5%] text-4xl font-semibold mb-5">รายการสินค้า</p>
 
-        <div class="contianer mx-auto flex overflow-x-auto w-screen my-10">    
+        <section class="contianer mx-auto flex overflow-x-auto w-screen my-10">    
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
@@ -205,9 +95,9 @@ defineProps({
                 </div>
             </div>
 
-        </div>
+        </section>
 
-        <div class="container mx-auto">
+        <section class="container mx-auto">
             <p class="text-center font-semibold text-3xl my-5">บริการของเรา</p>
             <hr class="border-black w-[432px] mx-auto mb-5">
 
@@ -243,12 +133,14 @@ defineProps({
             </div>
             <button class="text-black font-semibold rounded-lg border-4 border-black p-5 mr-5">ผลงานเพิ่มเติม</button>
             <button class="text-white font-semibold rounded-lg bg-[#03045E] p-6">ข้อมูลเพิ่มเติม</button>
-        </div>
+        </section>
     </Layout>
         
 
 </template>
 
-<style>
-
+<style scoped>
+#slider::-webkit-scrollbar{
+  display: none;
+}
 </style>
