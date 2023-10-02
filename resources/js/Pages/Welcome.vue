@@ -7,6 +7,7 @@ import { initFlowbite } from 'flowbite'
 
 onMounted(() => {
     initFlowbite();
+    
 })
 
 defineProps({
@@ -20,26 +21,58 @@ defineProps({
     <Head title="Welcome" />
     <Layout :can-login="canLogin" :can-register="canRegister">
         
-        <section class="w-screen ">
-            <div class="relative">
-                <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth rounded-lg " id="slider" style="-ms-overflow-style: none; scrollbar-width: none;">
-                    <img class="snap-start object-cover" :src="'../storage/slide/keeping.jpg'" style="flex: 1 0 100%;" id="slide1">
-                    <img class="snap-start object-cover" :src="'../storage/slide/prepare.jpg'" style="flex: 1 0 100%;" id="slide2">
-                    <img class="snap-start object-cover" :src="'../storage/slide/product.jpg'" style="flex: 1 0 100%;" id="slide3">
-                    <img class="snap-start object-cover" :src="'../storage/slide/crane.jpg'" style="flex: 1 0 100%;" id="slide4">
-                    <img class="snap-start object-cover" :src="'../storage/slide/sending_product.jpg'" style="flex: 1 0 100%;" id="slide5">
-                </div>
 
-                <div class="flex flex-col gap-1 absolute top-1/4 inset-y-0 right-0 mr-10 z-10 -translate-x-1/2">
-                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide1"></a>
-                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide2"></a>
-                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide3"></a>
-                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide4"></a>
-                    <a class="w-5 h-5 border rounded-full transition ease-in-out delay-100 bg-yellow-500 hover:bg-white duration-300" href="#slide5"></a>
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <!-- Item 1 -->
+                <div class="hidden ease-in-out duration-700" data-carousel-item>
+                    <img :src="'../storage/slide/crane.jpg'" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden ease-in-out duration-700" data-carousel-item>
+                    <img :src="'../storage/slide/keeping.jpg'" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden ease-in-out duration-700 " data-carousel-item>
+                    <img :src="'../storage/slide/prepare.jpg'" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 4 -->
+                <div class="hidden ease-in-out duration-700 " data-carousel-item>
+                    <img :src="'../storage/slide/product.jpg'" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 5 -->
+                <div class="hidden ease-in-out duration-700 " data-carousel-item>
+                    <img :src="'../storage/slide/sending_product.jpg'" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
+            <!-- Slider indicators -->
+            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+            </div>
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </div>
 
-        </section>
        
 
         <section class="container mx-auto">
@@ -100,28 +133,28 @@ defineProps({
         <section class="container mx-auto">
             <p class="text-center font-semibold text-3xl my-5">บริการของเรา</p>
             <hr class="border-black w-[432px] mx-auto mb-5">
-
-            <div class="flex h-[300px] justify-center items-center space-x-4">
-                <img :src="'../storage/image/pen-icon.png'" class="w-[147px] h-[152px]" alt="">
-                <div class="w-[25%]">
-                    <p class="font-semibold text-center text-lg">ออกแบบ ติดตั้งรอกและเครน</p>
-                    <p class="text-center">บริการออกแบบ <br>ให้คำแนะนำสำหรับการติดตั้งรอกและ เครนในอุตสาหกรรมทุกประเภทโดยผู้เชี่ยวชาญ</p>
-                </div>
-                <img :src="'../storage/image/repair-icon.png'" class="w-[147px] h-[152px]" alt="">
-                <div class="w-[25%]">
-                    <p class="font-semibold text-center text-lg">บริการซ่อม</p>
-                    <p class="text-center">บริการซ่อมรอกโดยทีมงานผู้เชี่ยวชาญ และพร้อมให้บริการในกรณีซ่อมด่วน</p>
-                </div>
-            </div>
-            <hr class="border-black my-10">
-                <div class="flex justify-center">
-                    <img :src="'../storage/image/list-icon.png'" alt="" class="w-[202px] h-[202px]">
-                    <div class="flex-col w-[25%] justify-center">
-                        <p class="text-center font-semibold">บริการตรวจเช็ค</p>
-                        <p class="text-center">บริการตรวจเช็ครอกและเครนประจำปี รายงานการตรวจเช็คและให้คำแนะนำในการบำรุงรักษาเพื่อให้มีความปลอดภัย จากการใช้งาน</p>
+                    <div class="flex h-[300px] justify-center items-center space-x-4">
+                        <img :src="'../storage/image/pen-icon.png'" class="w-[147px] h-[152px]" alt="">
+                        <div class="w-[25%]">
+                            <p class="font-semibold text-center text-lg">ออกแบบ ติดตั้งรอกและเครน</p>
+                            <p class="text-center">บริการออกแบบ <br>ให้คำแนะนำสำหรับการติดตั้งรอกและ เครนในอุตสาหกรรมทุกประเภทโดยผู้เชี่ยวชาญ</p>
+                        </div>
+                        <img :src="'../storage/image/repair-icon.png'" class="w-[147px] h-[152px]" alt="">
+                        <div class="w-[25%]">
+                            <p class="font-semibold text-center text-lg">บริการซ่อม</p>
+                            <p class="text-center">บริการซ่อมรอกโดยทีมงานผู้เชี่ยวชาญ และพร้อมให้บริการในกรณีซ่อมด่วน</p>
+                        </div>
                     </div>
-                </div>
+                <hr class="border-black my-10">
+                    <div class="flex justify-center items-center">
+                        <img :src="'../storage/image/list-icon.png'" alt="" class="w-[202px] h-[202px]">
+                        <div class="flex-col w-[25%] justify-center">
+                            <p class="text-center font-semibold">บริการตรวจเช็ค</p>
+                            <p class="text-center">บริการตรวจเช็ครอกและเครนประจำปี รายงานการตรวจเช็คและให้คำแนะนำในการบำรุงรักษาเพื่อให้มีความปลอดภัย จากการใช้งาน</p>
+                        </div>
+                    </div>
             <hr class="border-black my-10">
+            
             
             <div class="grid grid-cols-2">
                 <div>
@@ -131,16 +164,10 @@ defineProps({
                 
                 <img :src="'../storage/slide/crane.jpg'" alt="">
             </div>
-            <button class="text-black font-semibold rounded-lg border-4 border-black p-5 mr-5">ผลงานเพิ่มเติม</button>
-            <button class="text-white font-semibold rounded-lg bg-[#03045E] p-6">ข้อมูลเพิ่มเติม</button>
+            <button class="text-black font-semibold rounded-lg border-2 border-black p-3 md:p-5 mr-5">ผลงานเพิ่มเติม</button>
+            <button class="text-white font-semibold rounded-lg bg-[#03045E] p-3 md:p-6">ข้อมูลเพิ่มเติม</button>
         </section>
     </Layout>
         
 
 </template>
-
-<style scoped>
-#slider::-webkit-scrollbar{
-  display: none;
-}
-</style>
