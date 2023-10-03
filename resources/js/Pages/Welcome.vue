@@ -91,10 +91,28 @@ defineProps({
 
         <p class="ml-[5%] text-4xl font-semibold mb-5">รายการสินค้า</p>
 
-        <section class="contianer mx-auto flex overflow-x-auto w-screen my-10">    
+        <section class="contianer mx-auto flex overflow-x-auto w-screen my-10 space-x-4">    
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                <a href="#">
+                    <img class="rounded-t-lg" src="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        Read more
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="rounded-t-lg" src="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg" alt="" />
                 </a>
                 <div class="p-5">
                     <a href="#">
@@ -109,10 +127,10 @@ defineProps({
                     </a>
                 </div>
             </div>
-            
+
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="" alt="" />
+                    <img class="rounded-t-lg" src="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg" alt="" />
                 </a>
                 <div class="p-5">
                     <a href="#">
@@ -133,22 +151,21 @@ defineProps({
         <section class="container mx-auto">
             <p class="text-center font-semibold text-3xl my-5">บริการของเรา</p>
             <hr class="border-black w-[432px] mx-auto mb-5">
-                    <div class="flex h-[300px] justify-center items-center space-x-4">
-                        <img :src="'../storage/image/pen-icon.png'" class="w-[147px] h-[152px]" alt="">
+                    <div class="flex flex-col md:flex-row my-16 justify-center items-center space-y-7 md:space-x-4">
+                        <img :src="'../storage/image/pen-icon.png'" class="" alt="">
                         <div class="w-[25%]">
                             <p class="font-semibold text-center text-lg">ออกแบบ ติดตั้งรอกและเครน</p>
                             <p class="text-center">บริการออกแบบ <br>ให้คำแนะนำสำหรับการติดตั้งรอกและ เครนในอุตสาหกรรมทุกประเภทโดยผู้เชี่ยวชาญ</p>
                         </div>
-                        <img :src="'../storage/image/repair-icon.png'" class="w-[147px] h-[152px]" alt="">
+                        <img :src="'../storage/image/repair-icon.png'" class="" alt="">
                         <div class="w-[25%]">
                             <p class="font-semibold text-center text-lg">บริการซ่อม</p>
                             <p class="text-center">บริการซ่อมรอกโดยทีมงานผู้เชี่ยวชาญ และพร้อมให้บริการในกรณีซ่อมด่วน</p>
                         </div>
                     </div>
-                <hr class="border-black my-10">
-                    <div class="flex justify-center items-center">
-                        <img :src="'../storage/image/list-icon.png'" alt="" class="w-[202px] h-[202px]">
-                        <div class="flex-col w-[25%] justify-center">
+                    <div class="flex flex-col md:flex-row justify-center items-center space-y-7 md:space-x-4">
+                        <img :src="'../storage/image/list-icon.png'" alt="" class="">
+                        <div class="flex flex-col w-[25%] justify-center">
                             <p class="text-center font-semibold">บริการตรวจเช็ค</p>
                             <p class="text-center">บริการตรวจเช็ครอกและเครนประจำปี รายงานการตรวจเช็คและให้คำแนะนำในการบำรุงรักษาเพื่อให้มีความปลอดภัย จากการใช้งาน</p>
                         </div>

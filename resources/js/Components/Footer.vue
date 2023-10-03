@@ -1,6 +1,6 @@
 <template>
-    <footer class="bg-[#FFBF69] mt-24">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer class="bg-[#03045E] mt-24">
+        <div class="mx-auto w-full max-w-screen-xl text-white p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0 text-center">
                 <p class="font-bold text-xl mb-4">บริษัท เค.เอส.เอ็น.เอ็นจิเนียร์ริ่ง จำกัด</p>
