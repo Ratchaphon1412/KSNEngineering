@@ -19,7 +19,7 @@ defineProps({
         <nav class="bg-white fixed w-full z-40 top-0 left-0 border-b border-gray-200">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link href="/" class="block">
-                    <img :src="'../storage/image/logo.png'" class="w-[60px]" alt="KSNLogo">
+                    <img src="assets/image/logo.png" class="w-[60px]" alt="KSNLogo">
                 </Link>
                 <div class="flex md:order-2">
                     <!-- login and register -->
