@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RepairController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,11 +30,17 @@ Route::get('/', function () {
 });
 
 Route::get('/product', function () {
-    return Inertia::render('ProductPage');
+    return Inertia::render('ProductPage', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
 })->name("product");
 
 Route::get('/service-page', function () {
-    return Inertia::render('ServicePage');
+    return Inertia::render('ServicePage', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
 })->name("service-page");
 
 Route::middleware([
@@ -42,6 +49,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
+        if(auth()->user()->role === "admin"){
+            return Inertia::render('Repair');
+        }
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get('/repair', function () {
+    return Inertia::render('Repair');
+})->name('repair');

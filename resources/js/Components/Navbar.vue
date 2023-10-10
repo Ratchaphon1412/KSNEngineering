@@ -5,6 +5,7 @@ defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
 });
+
 </script>
 
 <template>
@@ -22,26 +23,31 @@ defineProps({
 
                 <div class="text-sm font-medium text-center text-gray-500 border-gray-200">
                     <ul class="flex -mb-px">
+                        <!-- <li class="mr-2">
+                            <Link href="/" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" :class="{ 'text-blue-600 border-b-blue-600' : $page.url === '/' }">หน้าหลัก</Link>
+                        </li> -->
+
                         <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">หน้าหลัก</a>
+                            <Link href="/" :class="[$page.url === '/' ? 'inline-block p-4 border-b-2 border-transparent rounded-t-lg text-blue-600 border-b-blue-600' : 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300' ]">หน้าหลัก</Link>
+                        </li>
+
+                        <li class="mr-2">
+                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">เกี่ยวกับเรา</a>
                         </li>
                         <li class="mr-2">
-                            <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">เกี่ยวกับเรา</a>
+                            <Link href="/service-page" :class="[$page.url === '/service-page' ? 'inline-block p-4 border-b-2 border-transparent rounded-t-lg text-blue-600 border-b-blue-600' : 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300' ]">บริการ</Link>
                         </li>
                         <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">บริการ</a>
+                            <Link href="/product" :class="[$page.url === '/product' ? 'inline-block p-4 border-b-2 border-transparent rounded-t-lg text-blue-600 border-b-blue-600' : 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300' ]">สินค้า</Link>
                         </li>
                         <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">สินค้า</a>
+                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">เครนโรงงาน</a>
                         </li>
                         <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">เครนโรงงาน</a>
+                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">ผลงานของเรา</a>
                         </li>
                         <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">ผลงานของเรา</a>
-                        </li>
-                        <li class="mr-2">
-                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">ติดต่อเรา</a>
+                            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300">ติดต่อเรา</a>
                         </li>
                     </ul>
                 </div>

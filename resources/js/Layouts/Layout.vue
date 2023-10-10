@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from '@/Components/Navbar.vue';
+import Footer from '@/Components/Footer.vue';
 
 defineProps({
     canLogin: Boolean,
@@ -13,4 +14,5 @@ defineProps({
     <div>
         <slot/>
     </div>
+    <Footer/>
 </template>
