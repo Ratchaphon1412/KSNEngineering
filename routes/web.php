@@ -43,10 +43,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
+        if(auth()->user()->role === "admin"){
+            return Inertia::render('Repair');
+        }
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
 
 Route::get('/repair', function () {
     return Inertia::render('Repair');
-})->name('Repair');
+})->name('repair');
