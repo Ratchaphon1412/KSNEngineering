@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         $user->email = "poomffi@hotmail.com";
         $user->password = bcrypt('12345678');
         $user->role = "admin";
+<<<<<<< HEAD
         $user->save();
 
         $user = new User();
@@ -25,6 +26,8 @@ class UserSeeder extends Seeder
         $user->email = "poomffi@gmail.com";
         $user->password = bcrypt('12345678');
         $user->role = "user";
+=======
+>>>>>>> feature/multirole
         $user->save();
     }
 }

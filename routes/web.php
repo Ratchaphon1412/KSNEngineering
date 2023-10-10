@@ -16,6 +16,12 @@ use Inertia\Inertia;
 |
 */
 
+Route::middleware('multirole:Admin')->group(function () {
+    Route::get('/admin', function () {
+        return Inertia::render('adminPage');
+    })->name('admin');
+});
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -43,9 +49,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        if(auth()->user()->role === "admin"){
-            return Inertia::render('Repair');
-        }
+
+
+
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
@@ -54,5 +60,4 @@ Route::get('/repair', function () {
     return Inertia::render('Repair');
 })->name('repair');
 
-Route::get('report',[RepairController::class,''])
-Route::post('/report/{report}',[RepairController::class,''])->name('createReport');
+Route::post('/report/{report}', [RepairController::class, ''])->name('createReport');
