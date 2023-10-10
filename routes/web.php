@@ -4,7 +4,7 @@ use App\Http\Controllers\RepairController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\RepairController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +61,4 @@ Route::get('/repair', function () {
     return Inertia::render('Repair');
 })->name('repair');
 
-Route::post('/report/{report}', [RepairController::class, ''])->name('createReport');
+Route::post('/report/{report}', [RepairController::class, 'store'])->name('createReport');
