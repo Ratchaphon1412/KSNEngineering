@@ -53,3 +53,6 @@ Route::middleware([
 Route::get('/repair', function () {
     return Inertia::render('Repair');
 })->name('repair');
+
+Route::get('report',[RepairController::class,''])
+Route::post('/report/{report}',[RepairController::class,''])->name('createReport');
