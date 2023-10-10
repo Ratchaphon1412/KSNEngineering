@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::middleware('multirole:Admin')->group( function () {
+Route::middleware('multirole:Admin')->group(function () {
     Route::get('/admin', function () {
         return Inertia::render('adminPage');
     })->name('admin');
@@ -49,9 +49,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        if(auth()->user()->role === "admin"){
-            return Inertia::render('Repair');
-        }
+
+
+
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
