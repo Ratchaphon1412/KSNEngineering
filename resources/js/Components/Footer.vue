@@ -18,7 +18,7 @@
             <div class="grid mb-5 md:mb-0 md:grid-cols-2">
                 <div class="flex flex-col justify-center items-center">
                     <p class="font-bold text-lg mb-4">เครื่องหมายรับรอง</p>
-                    <img :src="'../storage/image/supportMark.jpg'" alt="supportMaark">
+                    <img src="assets/image/supportMark.jpg" alt="supportMaark">
                 </div>
             </div>
         </div>

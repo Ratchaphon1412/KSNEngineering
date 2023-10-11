@@ -1,13 +1,13 @@
 <script setup>
 import { Head } from '@inertiajs/vue3';
 import Layout from '@/Layouts/Layout.vue';
+import Card from '@/Components/Card.vue'
 
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
 
 onMounted(() => {
     initFlowbite();
-    
 })
 
 defineProps({
@@ -78,12 +78,12 @@ defineProps({
         <section class="container mx-auto">
             <p class="text-center font-semibold text-3xl my-10">เกี่ยวกับเรา</p>
             <p class="text-center px-[10%] font-normal leading-loose">
-                บริษัท เค เอส เอ็น เอ็นจิเนียริ่ง จำกัด ได้ก่อตั้งขึ้นในปี พ.ศ. 2537 เพื่อดำเนินธุรกิจ<br>
-                ทางด้านการส่งเสริมอุตสาหกรรมของประเทศไทย เป็นตัวแทนจำหน่ายรอกเครน, ลิฟต์<br>
-                ขนส่งสินค้าเพื่อตอบสนองความต้องการในโรงงานอุตสาหกรรม ตลอดจนผู้ใช้งานทั่วไป<br>
-                บริษัทมุ่งเน้นถึงคุณภาพของการผลิตทุกขั้นตอน คำนึงถึงความปลอดภัยของผู้ใช้<br>
-                งานล้วนเลือกคัดสรรแต่สินค้าที่มีคุณภาพเท่านั้นไว้ให้บริการ ด้วยความมุ่งมั่นและพัฒนา อย่างต่อเนื่อง<br>
-                จึงทำให้ผลงานเป็นที่ประจักษ์ต่อลูกค้าที่ได้ใช้บริการ ด้วยระยะเวลา รวมถึงประสบการณ์ที่ยาวนาน<br>
+                บริษัท เค เอส เอ็น เอ็นจิเนียริ่ง จำกัด ได้ก่อตั้งขึ้นในปี พ.ศ. 2537 เพื่อดำเนินธุรกิจ
+                ทางด้านการส่งเสริมอุตสาหกรรมของประเทศไทย เป็นตัวแทนจำหน่ายรอกเครน, ลิฟต์
+                ขนส่งสินค้าเพื่อตอบสนองความต้องการในโรงงานอุตสาหกรรม ตลอดจนผู้ใช้งานทั่วไป
+                บริษัทมุ่งเน้นถึงคุณภาพของการผลิตทุกขั้นตอน คำนึงถึงความปลอดภัยของผู้ใช้
+                งานล้วนเลือกคัดสรรแต่สินค้าที่มีคุณภาพเท่านั้นไว้ให้บริการ ด้วยความมุ่งมั่นและพัฒนา อย่างต่อเนื่อง
+                จึงทำให้ผลงานเป็นที่ประจักษ์ต่อลูกค้าที่ได้ใช้บริการ ด้วยระยะเวลา รวมถึงประสบการณ์ที่ยาวนาน
                 และตั้งอยู่บนฐานของความซื่อสัตย์ พร้อมมิตรไมตรีทางธุรกิจจึงทำให้เราได้รับความไว้วางใจจากลูกค้าเป็นจำนวนมาก
             </p>
             <hr class="my-14 w-[432px] mx-auto border-black border-2 rounded-full">
@@ -91,9 +91,11 @@ defineProps({
 
         <p class="ml-[5%] text-4xl font-semibold mb-5">รายการสินค้า</p>
 
-        <section class="flex container mx-auto overflow-x-auto w-screen space-x-4 snap-x">
-            <div v-for="n in 4" class="">
-                <div class="w-96 bg-white border border-gray-200 rounded-lg shadow snap-start">
+        <section class="flex container mx-auto overflow-x-auto w-screen snap-mandatory snap-x">
+                <Card :Price="500.0" :Name="'stock1'" :Status="'Incoming'"/>
+                <Card :Price="500.0" :Name="'stock2'" :Status="'Incoming'"/>
+                <Card :Price="500.0" :Name="'stock3'" :Status="'Incoming'"/>
+                <!-- <div class="w-96 bg-white border border-gray-200 rounded-lg shadow snap-start">
                     <a href="#">
                         <img class="rounded-t-lg" src="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg" alt="" />
                     </a>
@@ -109,8 +111,7 @@ defineProps({
                             </svg>
                         </a>
                     </div>
-                </div>
-            </div>
+                </div> -->
 
         </section>
 
@@ -118,19 +119,19 @@ defineProps({
             <p class="text-center font-semibold text-3xl my-5">บริการของเรา</p>
             <hr class="border-black w-[432px] mx-auto mb-5">
                     <div class="flex flex-col md:flex-row my-16 justify-center items-center space-y-7 md:space-x-4">
-                        <img :src="'../storage/image/pen-icon.png'" class="" alt="">
+                        <img src="assets/image/pen-icon.png" class="" alt="">
                         <div class="w-[25%]">
                             <p class="font-semibold text-center text-lg">ออกแบบ ติดตั้งรอกและเครน</p>
                             <p class="text-center">บริการออกแบบ <br>ให้คำแนะนำสำหรับการติดตั้งรอกและ เครนในอุตสาหกรรมทุกประเภทโดยผู้เชี่ยวชาญ</p>
                         </div>
-                        <img :src="'../storage/image/repair-icon.png'" class="" alt="">
+                        <img src="assets/image/repair-icon.png" class="" alt="">
                         <div class="w-[25%]">
                             <p class="font-semibold text-center text-lg">บริการซ่อม</p>
                             <p class="text-center">บริการซ่อมรอกโดยทีมงานผู้เชี่ยวชาญ และพร้อมให้บริการในกรณีซ่อมด่วน</p>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-7 md:space-x-4">
-                        <img :src="'../storage/image/list-icon.png'" alt="" class="">
+                        <img src="assets/image/list-icon.png" alt="" class="">
                         <div class="flex flex-col w-[25%] justify-center">
                             <p class="text-center font-semibold">บริการตรวจเช็ค</p>
                             <p class="text-center">บริการตรวจเช็ครอกและเครนประจำปี รายงานการตรวจเช็คและให้คำแนะนำในการบำรุงรักษาเพื่อให้มีความปลอดภัย จากการใช้งาน</p>
@@ -145,7 +146,7 @@ defineProps({
                     <p>asidfjaisdvapnsibgnp</p>
                 </div>
                 
-                <img :src="'../storage/slide/crane.jpg'" alt="">
+                <img src="assets/slide/crane.jpg" alt="">
             </div>
             <button class="text-black font-semibold rounded-lg border-2 border-black p-3 md:p-5 mr-5">ผลงานเพิ่มเติม</button>
             <button class="text-white font-semibold rounded-lg bg-[#03045E] p-3 md:p-6">ข้อมูลเพิ่มเติม</button>
