@@ -8,6 +8,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 import NavLink from "@/Components/NavLink.vue";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
+import Footer from "@/Components/Footer.vue";
 
 defineProps({
     title: String,
@@ -563,6 +564,7 @@ const logout = () => {
             <main>
                 <slot />
             </main>
+            <Footer />
         </div>
     </div>
 </template>
