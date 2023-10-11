@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
-import Layout from '@/Layouts/Layout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-    <Layout :can-login="canLogin" :can-register="canRegister">
+    <AppLayout title="Home">
         <div id="default-carousel" class="relative w-full p-10" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-72 overflow-hidden rounded-lg md:h-96">
@@ -137,5 +137,5 @@ defineProps({
                     </div>
                 </div>
             </div>
-    </Layout>
+    </AppLayout>
 </template>

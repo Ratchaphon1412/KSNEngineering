@@ -1,52 +1,45 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
-import Layout from '@/Layouts/Layout.vue';
-import Card from '@/Components/Card.vue'
-
-import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
+import AppLayout from "@/Layouts/AppLayout.vue";
+import HeroSection from "@/Sections/Home/Hero.vue";
+import PartnerSection from "@/Sections/Home/Partner.vue";
+import { onMounted } from "vue";
+import { initFlowbite } from "flowbite";
 
 onMounted(() => {
     initFlowbite();
-})
-
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
 });
-
 </script>
 
 <template>
-    <Head title="Welcome" />
+    <!-- <Head title="Welcome" />
     <Layout :can-login="canLogin" :can-register="canRegister">
         
 
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
+            
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                <!-- Item 1 -->
+                
                 <div class="hidden ease-in-out duration-700" data-carousel-item>
                     <img src="assets/slide/crane.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
-                <!-- Item 2 -->
+                
                 <div class="hidden ease-in-out duration-700" data-carousel-item>
                     <img src="assets/slide/keeping.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
-                <!-- Item 3 -->
+                
                 <div class="hidden ease-in-out duration-700 " data-carousel-item>
                     <img src="assets/slide/prepare.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
-                <!-- Item 4 -->
+                
                 <div class="hidden ease-in-out duration-700 " data-carousel-item>
                     <img src="assets/slide/product.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
-                <!-- Item 5 -->
+                
                 <div class="hidden ease-in-out duration-700 " data-carousel-item>
                     <img src="assets/slide/sending_product.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
-            <!-- Slider indicators -->
+            
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
@@ -54,7 +47,7 @@ defineProps({
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
             </div>
-            <!-- Slider controls -->
+            
             <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                     <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -95,24 +88,6 @@ defineProps({
                 <Card :Price="500.0" :Name="'stock1'" :Status="'Incoming'"/>
                 <Card :Price="500.0" :Name="'stock2'" :Status="'Incoming'"/>
                 <Card :Price="500.0" :Name="'stock3'" :Status="'Incoming'"/>
-                <!-- <div class="w-96 bg-white border border-gray-200 rounded-lg shadow snap-start">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg" alt="" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                            Read more
-                            <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div> -->
-
         </section>
 
         <section class="container mx-auto">
@@ -151,13 +126,13 @@ defineProps({
             <button class="text-black font-semibold rounded-lg border-2 border-black p-3 md:p-5 mr-5">ผลงานเพิ่มเติม</button>
             <button class="text-white font-semibold rounded-lg bg-[#03045E] p-3 md:p-6">ข้อมูลเพิ่มเติม</button>
         </section>
-    </Layout>
+    </Layout> -->
         
 
+    <AppLayout title="Home">
+        <HeroSection />
+        <PartnerSection />
+    </AppLayout>
 </template>
 
-<style scoped>
-::-webkit-scrollbar{
-    display: none;
-}
-</style>
+<style scoped></style>

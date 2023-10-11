@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
-import Layout from '@/Layouts/Layout.vue';
+
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -15,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-    <Layout :can-login="canLogin" :can-register="canRegister">
+    <AppLayout>
             <!--Head-->
             <div class="bg-red-400">
                 <div class="grid grid-cols-12 gap-x-12 ">
@@ -139,6 +140,6 @@ defineProps({
         </div>
         </div>
         -->
-    </Layout>
+    </AppLayout>
 </template>
 
