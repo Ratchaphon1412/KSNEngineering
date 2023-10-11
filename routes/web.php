@@ -24,11 +24,8 @@ Route::middleware('multirole:Admin')->group(function () {
 });
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register')
-    ]);
-});
+    return Inertia::render('Welcome');
+})->name('home');
 
 Route::get('/product', function () {
     return Inertia::render('ProductPage', [
