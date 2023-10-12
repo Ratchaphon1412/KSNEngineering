@@ -53,23 +53,57 @@ const logout = () => {
                                 </Link>
                             </div>
 
-                            <div class="flex">
+                            <div class="flex justify-center">
                                 <!-- Navigation Links -->
                                 <div
                                     class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                                 >
                                     <NavLink
-                                        v-if="$page.props.auth.user"
-                                        :href="route('dashboard')"
-                                        :active="route().current('dashboard')"
-                                    >
-                                        Dashboard
-                                    </NavLink>
-                                    <NavLink
                                         :href="route('home')"
                                         :active="route().current('home')"
                                     >
-                                        Home
+                                        หน้าหลัก
+                                    </NavLink>
+
+                                    <NavLink
+                                        :href="route('service-page')"
+                                        :active="route().current('service-page')"
+                                    >
+                                        เกี่ยวกับเรา
+                                    </NavLink>
+
+                                    <NavLink
+                                        :href="route('service-page')"
+                                        :active="route().current('service-page')"
+                                    >
+                                        บริการ
+                                    </NavLink>
+
+                                    <NavLink
+                                        :href="route('product')"
+                                        :active="route().current('product')"
+                                    >
+                                        สินค้า
+                                    </NavLink>
+
+                                    <NavLink
+                                    :href="route('service-page')"
+                                    :active="route().current('service-page')"
+                                    >
+                                        เครนโรงงาน
+                                    </NavLink>
+
+                                    <NavLink
+                                    :href="route('service-page')"
+                                    :active="route().current('service-page')"
+                                    >
+                                        ผลงานของเรา
+                                    </NavLink>
+                                    <NavLink
+                                    :href="route('service-page')"
+                                    :active="route().current('service-page')"
+                                    >
+                                        ติดต่อเรา
                                     </NavLink>
                                 </div>
                             </div>
@@ -422,20 +456,59 @@ const logout = () => {
                             >
                                 Login
                             </ResponsiveNavLink>
-
-                            <ResponsiveNavLink
-                                v-if="$page.props.auth.user"
-                                :href="route('dashboard')"
-                                :active="route().current('dashboard')"
-                            >
-                                Dashboard
-                            </ResponsiveNavLink>
                             <ResponsiveNavLink
                                 v-if="$page.props.auth.user"
                                 :href="route('profile.show')"
                                 :active="route().current('profile.show')"
                             >
                                 Profile
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                                :href="route('home')"
+                                :active="route().current('home')"
+                            >
+                                หน้าหลัก
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                                :href="route('service-page')"
+                                :active="route().current('service-page')"
+                            >
+                                เกี่ยวกับเรา
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                                :href="route('service-page')"
+                                :active="route().current('service-page')"
+                            >
+                                บริการ
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                                :href="route('product')"
+                                :active="route().current('product')"
+                            >
+                                สินค้า
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                            :href="route('service-page')"
+                            :active="route().current('service-page')"
+                            >
+                                เครนโรงงาน
+                            </ResponsiveNavLink>
+
+                            <ResponsiveNavLink
+                            :href="route('service-page')"
+                            :active="route().current('service-page')"
+                            >
+                                ผลงานของเรา
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                            :href="route('service-page')"
+                            :active="route().current('service-page')"
+                            >
+                                ติดต่อเรา
                             </ResponsiveNavLink>
 
                             <ResponsiveNavLink
