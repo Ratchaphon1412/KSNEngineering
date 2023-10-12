@@ -59,13 +59,6 @@ const logout = () => {
                                     class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                                 >
                                     <NavLink
-                                        v-if="$page.props.auth.user"
-                                        :href="route('dashboard')"
-                                        :active="route().current('dashboard')"
-                                    >
-                                        Dashboard
-                                    </NavLink>
-                                    <NavLink
                                         :href="route('home')"
                                         :active="route().current('home')"
                                     >
@@ -462,14 +455,6 @@ const logout = () => {
                                 :active="route().current('login')"
                             >
                                 Login
-                            </ResponsiveNavLink>
-
-                            <ResponsiveNavLink
-                                v-if="$page.props.auth.user"
-                                :href="route('dashboard')"
-                                :active="route().current('dashboard')"
-                            >
-                                Dashboard
                             </ResponsiveNavLink>
                             <ResponsiveNavLink
                                 v-if="$page.props.auth.user"
