@@ -69,12 +69,5 @@ class User extends Authenticatable
     ];
 
 
-    public function quotations():HasMany {
-        return $this->hasMany(Quotation::class);
-    }
-
-    public function troubleshootings():HasMany {
-        return $this->hasMany(Troubleshooting::class);
-    }
 
 }

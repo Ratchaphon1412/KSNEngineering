@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Company;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('troubleshootings', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Company::class);
-            $table->string('status')->default('process');
-
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('troubleshootings');
+        Schema::dropIfExists('companies');
     }
 };

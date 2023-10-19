@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 class RepairController extends Controller
 {
@@ -14,7 +13,9 @@ class RepairController extends Controller
      */
     public function index()
     {
-        return response()->json(Product::get());
+        return Inertia::render('Repair',[
+            'user' => User::get()[0],
+        ]);
     }
 
     /**

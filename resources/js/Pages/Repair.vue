@@ -1,40 +1,281 @@
-<script>
-import axios from 'axios';
+<template>
+    <div class="bg-gradient-to-b flex justify-center items-center pt-20 pb-36">
+        <div class="w-3/4 p-12 rounded-2xl bg-black-300 border border-gray-200 shadow">
+            <div class="p-2 bg-gradient-to-r animate-pulse from-cyan-300 via-cyan-800 to-cyan-300 rounded-2xl mx-5">
+                <p class="py-5 text-center text-4xl font-bold text-white dark:text-black">Report Repair</p>
+            </div>
+            <div class="flex">
+                <div class="w-1/2 p-5">
+                    <p class="pl-5 text-3xl text-white dark:text-black bg-cyan-300 rounded-2xl mb-8">Company</p>
+                    <Combobox v-model="selected">
+                    <div class="relative mt-1">
+                      <div
+                        class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+                      >
+                        <ComboboxInput
+                          class="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+                          :displayValue="(person) => person.name"
+                          @change="changeData()"
+                          
+                        />
+                        <ComboboxButton
+                          class="absolute inset-y-0 right-0 flex items-center pr-2"
+                        >
+                          <ChevronUpDownIcon
+                            class="h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </ComboboxButton>
+                      </div>
+                      <TransitionRoot
+                        leave="transition ease-in duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                        @after-leave="query = ''"
+                      >
+                        <ComboboxOptions
+                          class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                        >
+                          <div
+                            v-if="filteredPeople.length === 0 && query !== ''"
+                            class="relative cursor-default select-none py-2 px-4 text-gray-700"
+                          >
+                            Nothing found.
+                          </div>
+                      
+                          <ComboboxOption
+                            v-for="person in filteredPeople"
+                            as="template"
+                            :key="person.id"
+                            :value="person"
+                            v-slot="{ selected, active }"
+                          >
+                            <li
+                              class="relative cursor-default select-none py-2 pl-10 pr-4"
+                              :class="{
+                                'bg-teal-600 text-white': active,
+                                'text-gray-900': !active,
+                              }"
+                            >
+                              <span
+                                class="block truncate"
+                                :class="{ 'font-medium': selected, 'font-normal': !selected }"
+                              >
+                                {{ person.name }}
+                              </span>
+                              <span
+                                v-if="selected"
+                                class="absolute inset-y-0 left-0 flex items-center pl-3"
+                                :class="{ 'text-white': active, 'text-teal-600': !active }"
+                              >
+                                <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                              </span>
+                            </li>
+                          </ComboboxOption>
+                        </ComboboxOptions>
+                      </TransitionRoot>
+                    </div>
+                  </Combobox>
+                </div>
 
 
-export default {
-    data() {
-        return {
-            products: []
-        };
+
+
+                <div class="w-1/2 p-5">
+                    <p class="pl-5 text-3xl text-white dark:text-black bg-cyan-300 rounded-2xl mb-8">Crane ID</p>
+                    <Combobox v-model="craneSeleted">
+                    <div class="relative mt-1">
+                      <div
+                        class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+                      >
+                        <ComboboxInput
+                          class="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+                          :displayValue="(crane) => crane.id"
+                          @change="queryCrane = $event.target.value"
+                        />
+                        <ComboboxButton
+                          class="absolute inset-y-0 right-0 flex items-center pr-2"
+                        >
+                          <ChevronUpDownIcon
+                            class="h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </ComboboxButton>
+                      </div>
+                      <TransitionRoot
+                        leave="transition ease-in duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                        @after-leave="queryCrane = ''"
+                      >
+                        <ComboboxOptions
+                          class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                        >
+                          <div
+                            v-if="filteredCrane.length === 0 && queryCrane !== ''"
+                            class="relative cursor-default select-none py-2 px-4 text-gray-700"
+                          >
+                            Nothing found.
+                          </div>
+                      
+                          <ComboboxOption
+                            v-for="crane in filteredCrane"
+                            as="template"
+                            :key="crane.id"
+                            :value="crane"
+                            v-slot="{ craneSeleted, active }"
+                          >
+                            <li
+                              class="relative cursor-default select-none py-2 pl-10 pr-4"
+                              :class="{
+                                'bg-teal-600 text-white': active,
+                                'text-gray-900': !active,
+                              }"
+                            >
+                              <span
+                                class="block truncate"
+                                :class="{ 'font-medium': craneSeleted, 'font-normal': !craneSeleted }"
+                              >
+                                {{ crane.id }}
+                              </span>
+                              <span
+                                v-if="craneSeleted"
+                                class="absolute inset-y-0 left-0 flex items-center pl-3"
+                                :class="{ 'text-white': active, 'text-teal-600': !active }"
+                              >
+                                <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                              </span>
+                            </li>
+                          </ComboboxOption>
+                        </ComboboxOptions>
+                      </TransitionRoot>
+                    </div>
+                  </Combobox>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="w-1/2 p-5">
+                    <p class="pl-5 text-3xl text-white dark:text-black bg-cyan-300 rounded-2xl mb-8">Crane ID</p>
+                </div>
+                <div class="w-1/2 p-5">
+                    <p class="pl-5 text-3xl text-white dark:text-black bg-cyan-300 rounded-2xl mb-8">Crane ID</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+  
+<script setup>
+    import { ref, computed, watch } from 'vue';
+    import {
+      Combobox,
+      ComboboxInput,
+      ComboboxButton,
+      ComboboxOptions,
+      ComboboxOption,
+      TransitionRoot,
+    } from '@headlessui/vue';
+    import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid';
+
+    const people = [
+    {   id: 1, name: 'Wade Cooper' ,crane: 
+        [{
+            id: 'eiei0',
+        },
+        {
+            id: 'kiki0',
+        }]
     },
-    methods: {
-        // เรียก API เพื่อดึงข้อมูล
-        getProducts() {
-            axios.get('/api/repair').then((response) => {
-                this.products = response.data;
-                console.log(response.data);
-            });
-        }
+    {   id: 2, name: 'Arlene Mccoy',crane: [{
+            id: 'eiei1',
+        },
+        {
+            id: 'kiki1',
+        }]  
     },
-    mounted() {
-        this.getProducts();
+    { id: 3, name: 'Devon Webb'  ,crane: [{
+            id: 'eiei2',
+        },
+        {
+            id: 'kiki2',
+        }]  
+    },
+    { id: 4, name: 'Tom Cook'    ,crane: [{
+            id: 'eiei3',
+        },
+        {
+            id: 'kiki3',
+        }]  
+    },
+    { id: 5, name: 'Tanya Fox'   ,crane: [{
+            id: 'eiei4',
+        },
+        {
+            id: 'kiki4',
+        }]  
+    },
+    { id: 6, name: 'Hellen Schmidt',crane: [{
+            id: 'eiei5',
+        },
+        {
+            id: 'kiki5',
+        }]   
+        
+    },
+    ]
+
+
+    //company ที่เลือก
+    let selected = ref(people[0])
+    //craneID ที่เลือก
+    let craneSeleted = ref(selected.value.crane[0])
+    let query = ref('')
+
+    let filteredPeople = computed(() =>
+        query.value === ''
+        ? people
+        : people.filter((person) =>
+            person.name
+              .toLowerCase()
+              .replace(/\s+/g, '')
+              .includes(query.value.toLowerCase().replace(/\s+/g, ''))
+          )
+    )
+
+    let queryCrane = ref('')
+    watch(() => selected.value, (newValue, oldValue) => {
+    // อัปเดตค่าของ craneSelected เมื่อ selected.value เปลี่ยน
+        craneSeleted = ref('')
+    });
+
+    
+
+    let filteredCrane = computed(() =>
+        queryCrane.value === ''
+        ? selected.value.crane
+        : selected.value.crane.filter((crane) =>
+            crane.id
+              .toLowerCase()
+              .replace(/\s+/g, '')
+              .includes(queryCrane.value.toLowerCase().replace(/\s+/g, ''))
+          )
+    )
+
+    function changeData(){
+        query = $event.target.value
+        craneSeleted = selected.value.crane[0]
     }
-};
+
+
+
+
+
+
+    function checkcompany(){
+        console.log(selected.value.crane);
+    }
+
 
 
 </script>
-<template>
-
-
-<div >
-    <h1>
-        Report Repair
-    </h1>
-    <div v-for="product in products" :key="product.id" class="bg-blue-400">
-        <h3>{{ product.id }} || Name: {{ product.name }} || price: {{ product.price }}</h3>
-    </div>
-
-</div>
-
-</template>
+  

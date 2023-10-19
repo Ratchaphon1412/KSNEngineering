@@ -48,14 +48,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
 
-
-
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
 
-Route::get('/repair', function () {
-    return Inertia::render('Repair');
-})->name('repair');
-
-Route::post('/report/{report}', [RepairController::class, 'store'])->name('createReport');
+Route::resource('/repair', RepairController::class);
